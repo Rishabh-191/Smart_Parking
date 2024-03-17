@@ -1,0 +1,363 @@
+<div class="m-3 bg-light" style="width: 800px;">
+    <div
+      style="
+        width: 800px;
+        height: 380px;
+        border-right: 4px solid grey;
+        border-top: 4px solid grey;
+        border-left: 4px solid grey;
+      "
+    >
+      <div class="d-flex justify-content-between m-2">
+        <div
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-left: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p4=='vacant'"
+        src="../../../../../assets/icons/car left vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p4=='occupied'"
+        src="../../../../../assets/icons/car left occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+  
+        <div class="d-flex flex-row" style="visibility: hidden">
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-right: 2px dashed grey;
+            "
+          ></div>
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-left: 2px dashed grey;
+            "
+          ></div>
+        </div>
+  
+        <div 
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-right: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p11=='vacant'"
+        src="../../../../../assets/icons/car right vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p11=='occupied'"
+        src="../../../../../assets/icons/car right occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+      </div>
+      <div class="d-flex justify-content-between m-2">
+        <div
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-left: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p3=='vacant'"
+        src="../../../../../assets/icons/car left vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p3=='occupied'"
+        src="../../../../../assets/icons/car left occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+  
+        <div class="d-flex flex-row">
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-right: 2px dashed grey;
+              padding: 5px;
+            "
+          >
+          <img *ngIf="parkingData.p5=='vacant'"
+        src="../../../../../assets/icons/car right vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p5=='occupied'"
+        src="../../../../../assets/icons/car right occupied.svg"
+        height="71px"
+        width="121px"
+      />
+          </div>
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-left: 2px dashed grey;
+              padding: 5px;
+            "
+          >
+          <img *ngIf="parkingData.p10=='vacant'"
+        src="../../../../../assets/icons/car left vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p10=='occupied'"
+        src="../../../../../assets/icons/car left occupied.svg"
+        height="71px"
+        width="121px"
+      />
+          </div>
+        </div>
+  
+        <div
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-right: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p12=='vacant'"
+        src="../../../../../assets/icons/car right vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p12=='occupied'"
+        src="../../../../../assets/icons/car right occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+      </div>
+      <div class="d-flex justify-content-between m-2">
+        <div
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-left: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p2=='vacant'"
+        src="../../../../../assets/icons/car left vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p2=='occupied'"
+        src="../../../../../assets/icons/car left occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+  
+        <div class="d-flex flex-row">
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-right: 2px dashed grey;
+              padding: 5px;
+            "
+          >
+          <img *ngIf="parkingData.p6=='vacant'"
+        src="../../../../../assets/icons/car right vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p6=='occupied'"
+        src="../../../../../assets/icons/car right occupied.svg"
+        height="71px"
+        width="121px"
+      />
+          </div>
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-left: 2px dashed grey;
+              padding: 5px;
+            "
+          >
+          <img *ngIf="parkingData.p9=='vacant'"
+        src="../../../../../assets/icons/car left vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p9=='occupied'"
+        src="../../../../../assets/icons/car left occupied.svg"
+        height="71px"
+        width="121px"
+      />
+          </div>
+        </div>
+  
+        <div
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-right: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p13=='vacant'"
+        src="../../../../../assets/icons/car right vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p13=='occupied'"
+        src="../../../../../assets/icons/car right occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+      </div>
+      <div class="d-flex justify-content-between m-2">
+        <div
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-left: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p1=='vacant'"
+        src="../../../../../assets/icons/car left vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p1=='occupied'"
+        src="../../../../../assets/icons/car left occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+  
+        <div class="d-flex flex-row">
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-right: 2px dashed grey;
+              padding: 5px;
+            "
+          ><img *ngIf="parkingData.p7=='vacant'"
+          src="../../../../../assets/icons/car right vacant.svg"
+          height="71px"
+          width="121px"
+        />
+          <img *ngIf="parkingData.p7=='occupied'"
+          src="../../../../../assets/icons/car right occupied.svg"
+          height="71px"
+          width="121px"
+        />
+          </div>
+          <div
+            style="
+              height: 85px;
+              width: 135px;
+              border-top: 2px dashed grey;
+              border-bottom: 2px dashed grey;
+              border-left: 2px dashed grey;
+              padding: 5px;
+            "
+          ><img *ngIf="parkingData.p8=='vacant'"
+          src="../../../../../assets/icons/car left vacant.svg"
+          height="71px"
+          width="121px"
+        />
+          <img *ngIf="parkingData.p8=='occupied'"
+          src="../../../../../assets/icons/car left occupied.svg"
+          height="71px"
+          width="121px"
+        />
+          </div>
+        </div>
+  
+        <div
+          style="
+            height: 85px;
+            width: 135px;
+            border-top: 2px dashed grey;
+            border-bottom: 2px dashed grey;
+            border-right: 2px dashed grey;
+            padding: 5px;
+          "
+        >
+        <img *ngIf="parkingData.p14=='vacant'"
+        src="../../../../../assets/icons/car right vacant.svg"
+        height="71px"
+        width="121px"
+      />
+        <img *ngIf="parkingData.p14=='occupied'"
+        src="../../../../../assets/icons/car right occupied.svg"
+        height="71px"
+        width="121px"
+      />
+        </div>
+      </div>
+    </div>
+  
+    <div
+      class="d-flex flex-row justify-content-between align-items-center px-3"
+      style="
+        height: 85px;
+        width: 800px;
+        border-bottom: 4px solid grey;
+        border-left: 4px solid grey;
+        border-right: 4px solid grey;
+        color: grey;
+        font-weight: 600;
+      "
+    >
+      <div>E N T E R</div>
+      <div>E X I T</div>
+    </div>
+  </div>
+  

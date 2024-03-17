@@ -1,0 +1,133 @@
+<div class="parent">
+  <div class="d-flex flex-row">
+    <div
+      class="bg-dark d-flex"
+      style="height: 600px; width: 250px; position: fixed; z-index: 1"
+    >
+      <div class="d-flex flex-column w-100">
+        <div
+          class="d-flex justify-content-center align-items-center"
+          style="
+            padding: 20px;
+            font-size: 20px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold',
+              sans-serif;
+            color: #3aafa9;
+          "
+        >
+          SmartPark
+        </div>
+        <!-- <div 
+            (click)="onSelect(0)"
+            [style.background-color]="selected==0 ? '#3aafa9' : 'transparent'"
+            class="ms-3 me-3 mt-5 ps-3 py-2"
+            style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+          >
+            Parking View
+          </div> -->
+        <div *ngIf="userData.role=='admin'"
+          (click)="onSelect(1)"
+          [style.background-color]="selected == 1 ? '#3aafa9' : 'transparent'"
+          class="ms-3 me-3 mt-3 ps-3 py-2"
+          style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+        >
+          Parking view
+        </div>
+        <div
+        *ngIf="userData.role=='admin'"
+          (click)="onSelect(2)"
+          [style.background-color]="selected == 2 ? '#3aafa9' : 'transparent'"
+          class="ms-3 me-3 mt-3 ps-3 py-2"
+          style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+        >
+          Entry control
+        </div>
+        <div
+        *ngIf="userData.role=='admin'"
+          (click)="onSelect(3)"
+          [style.background-color]="selected == 3 ? '#3aafa9' : 'transparent'"
+          class="ms-3 me-3 mt-3 ps-3 py-2"
+          style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+        >
+          Exit control
+        </div>
+        <div
+        *ngIf="userData.role=='admin'"
+        (click)="onSelect(5)"
+        [style.background-color]="selected == 5 ? '#3aafa9' : 'transparent'"
+        class="ms-3 me-3 mt-3 ps-3 py-2"
+        style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+      >
+        Monitoring
+      </div>
+      <div
+      *ngIf="userData.role=='admin'"
+      (click)="onSelect(6)"
+      [style.background-color]="selected == 6 ? '#3aafa9' : 'transparent'"
+      class="ms-3 me-3 mt-3 ps-3 py-2"
+      style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+    >
+      Gate Control
+    </div>
+        <div
+        *ngIf="userData.role=='user'"
+        (click)="onSelect(4)"
+        [style.background-color]="selected == 4 ? '#3aafa9' : 'transparent'"
+        class="ms-3 me-3 mt-3 ps-3 py-2"
+        style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+      >
+        Booking
+      </div>
+        <!-- <div
+            (click)="onSelect(2)"
+            [style.background-color]="selected==2 ? '#3aafa9' : 'transparent'"
+            class="ms-3 me-3 mt-3 ps-3 py-2"
+            style="color: white; border: 1px solid #3aafa9; border-radius: 10px"
+          >
+            Other
+          </div> -->
+
+        <button
+          class="rounded-pill mx-5 py-2 mt-5"
+          style="background-color: #3aafa9"
+          (click)="clearLocalStorage()"
+        >
+          Sign Out
+        </button>
+      </div>
+    </div>
+
+    <div style="height: 600px; width: 100%">
+      <div
+        class=""
+        style="
+          position: fixed;
+          margin-left: 250px;
+          padding: 16px;
+          min-height: 60px;
+          width: 100%;
+          background-color: #3aafa9;
+          color: white;
+          font-size: 20px;
+          font-weight: 400;
+          z-index: 2;
+        "
+      >
+        {{userData.username}}
+      </div>
+
+      <div
+        class="bg-secondary"
+        style="
+          height: 100%;
+          width: 100%;
+          color: black;
+          padding-left: 250px;
+          padding-top: 60px;
+        "
+      >
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

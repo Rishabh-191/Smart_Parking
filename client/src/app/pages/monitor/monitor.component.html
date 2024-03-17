@@ -1,0 +1,19 @@
+<div class="container-fluid p-4">
+
+    <div>
+        <button (click)="selectCam(1)" style="background-color: #3AAFA9;" class="btn m-2">Camera1</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera2</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera3</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera4</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera5</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera6</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera7</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera8</button>
+        <button (click)="selectCam(0)" style="background-color: #3AAFA9;" class="btn m-2">Camera9</button>
+    </div>
+
+
+    <div style="" *ngIf="selectedCamera==1" class="m-3">
+        <img src="http://192.168.163.147:81/stream" alt="video" height="400px">
+    </div>
+</div>

@@ -211,7 +211,7 @@ app.post('/updateParking', async (req, res) => {
 
 ////////////////////////////////////////////////////////////////
 
-const ip = "192.168.226.12";
+const ip = "localhost";
 app.listen(PORT, ip, () => console.log('Server has been started'));
 
 

@@ -6,8 +6,10 @@ const bookingController = require('../controller/bookingController');
 
 
 //user routes
+router.get('/users', userController.getAll);
 router.post('/user/add', userController.add);
 router.post('/user/login', userController.login)
+router.get('/user/name:name', userController.getByName);
 router.get('/user/getById/:id', userController.getById)
 router.put('/user/update/:id', userController.update)
 router.put('/user/updateBalance/:id', userController.updateBalance)

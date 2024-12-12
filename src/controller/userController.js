@@ -7,32 +7,70 @@ const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res) => {
     try {
+        // Extract email and password from the request body
+        const { email, password, role } = req.body;
 
-        console.log(req.body);
-        const salt = await bcrypt.genSalt(10);
-        //req.body.password = await bcrypt.hash(req.body.password, salt);
-        const userData = await user.findOne({ email: req.body.email });
+        // Check if all required fields are provided
+        if (!email || !password || !role) {
+            return res.status(400).json({ message: "All fields are required" });
+        }
 
-
+        // Find the user by email
+        const userData = await user.findOne({ email });
         if (!userData) {
-            res.json({ message: "User not found" });
-            return;
+            return res.status(404).json({ message: "User not found" });
         }
 
-        const passwordMatch = await bcrypt.compare(req.body.password, userData.password);
-
-        if (passwordMatch && req.body.role == userData.role) {
-
-            const apptoken = jwt.sign({ userId: userData.id }, 'xxxxxxxxxxxxxxx', { expiresIn: '1h' });
-
-            res.json({ message: "success", data: userData, token: apptoken });
-        } else {
-            res.json({ message: "Wrong credentials" });
+        // Verify the password
+        const passwordMatch = await bcrypt.compare(password, userData.password);
+        if (!passwordMatch) {
+            return res.status(401).json({ message: "Incorrect password" });
         }
+
+        // Verify the role
+        if (role !== userData.role) {
+            return res.status(403).json({ message: "Unauthorized role" });
+        }
+
+        // Generate JWT token
+        const apptoken = jwt.sign(
+            { userId: userData.id, role: userData.role },
+            process.env.JWT_SECRET || 'defaultSecretKey', // Use environment variables for security
+            { expiresIn: '1h' }
+        );
+
+        // Respond with success message and token
+        res.status(200).json({
+            message: "Login successful",
+            token: apptoken,
+            user: {
+                id: userData.id,
+                email: userData.email,
+                role: userData.role,
+            },
+        });
     } catch (err) {
-        res.status(500).json(err)
-
+        console.error("Login error:", err);
+        res.status(500).json({ message: "Internal server error", error: err.message });
     }
+};
+
+exports.verifyToken = (req, res, next) => {
+    const token = req.headers['authorization'];
+
+    if (!token) {
+        return res.status(403).json({ message: "No token provided" });
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET || 'defaultSecretKey', (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ message: "Unauthorized or invalid token" });
+        }
+
+        // Attach decoded user info to request object
+        req.user = decoded;
+        next();
+    });
 };
 
 exports.add = async (req, res) => {
@@ -114,6 +152,28 @@ exports.add = async (req, res) => {
 //     res.status(500).send('Server Error');
 //   }
 // }
+
+exports.getByName = async (req, res) => {
+    try {
+        const userData = await user.findOne({ name: req.params.name }).populate('booking');
+        if (userData) {
+            res.json({ message: "success", data: userData });
+        } else {
+            res.json({ message: "User not found" });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+};
+
+exports.getAll = async (req, res) => {
+    try {
+        const users = await user.find().populate('booking');
+        res.json({ message: "success", data: users });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+};
 
 exports.getById = async (req, res) => {
     try {

@@ -16,6 +16,10 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/user/login`, post);
   }
 
+  register(post: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/user/add`, post);
+  }
+
   updateUser(post: any, id: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/user/update/${id}`, post);
   }

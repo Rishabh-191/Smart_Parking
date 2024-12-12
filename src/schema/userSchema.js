@@ -1,22 +1,33 @@
+const e = require('express');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { ObjectId } = mongoose.Schema.Types;
 
 const userschema = mongoose.Schema({
         username: {
-            type: String
+            type: String,
+            required: true,
+            trim: true
         },
         password: {
-            type: String
+            type: String,
+            required: true,
+            minlegth: 6
         },
         email: {
-            type: String
+            type: String,
+            required: true,
+            unique: true,
+            match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         },
         role: {
-            type: String
+            type: String,
+            required: true,
+            enum: ['admin', 'user'],
         },
         balance: {
-            type: Number
+            type: Number,
+            default: 0
         },
         booking: {
             type: mongoose.Schema.Types.ObjectId,
